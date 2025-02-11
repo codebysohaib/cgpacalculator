@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -130,11 +131,7 @@
             text-align: center;
             margin-top: 30px;
             color: #666;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            left: 0;
-            padding: 10px;
+            padding: 20px;
             background: white;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -162,6 +159,25 @@
 
         body.dark-mode .dark-mode-toggle {
             transform: rotate(180deg);
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-link {
+            margin: 0 10px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .social-link {
+            color: #e0e0e0;
+        }
+
+        .social-link:hover {
+            color: #3498db;
         }
 
         @media (max-width: 600px) {
@@ -193,7 +209,7 @@
     <div class="container">
         <div class="nav">
             <h1>CGPA Calculator</h1>
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">☀︎</button>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">☀️</button>
         </div>
         
         <div class="input-group">
@@ -247,10 +263,22 @@
     </div>
 
     <footer>
-    
-    
-    <p>&copy; 2025 Muhammad Sohaib Asif. All rights reserved.</p>
-  </footer>
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@mughalsab_0" class="social-link" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1UenwYd2Rf/" class="social-link" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/mughalsab_0" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/923476856605" class="social-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Muhammad Sohaib Asif. All rights reserved.</p>
+    </footer>
 
     <script>
         function addRow() {
@@ -331,7 +359,10 @@
         }
 
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            darkModeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
         }
 
         function shareResults() {
